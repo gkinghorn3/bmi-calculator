@@ -1,0 +1,20 @@
+.header-container {
+    background-color: transparent;
+    height: 53rem;
+    width: 100vw;
+  &:after {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: "";
+
+    width: 61.125rem;
+    height: 46.0625rem;
+    flex-shrink: 0; 
+    border-radius: 0rem 0rem 2.1875rem 2.1875rem;
+    background: linear-gradient(290deg, #d6dafe 0%, rgba(214, 252, 254, 0) 100%);
+
+  }
+}
