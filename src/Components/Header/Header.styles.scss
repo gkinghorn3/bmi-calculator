@@ -9,12 +9,23 @@
     left: 0;
     display: block;
     content: "";
-
     width: 61.125rem;
     height: 46.0625rem;
     flex-shrink: 0; 
     border-radius: 0rem 0rem 2.1875rem 2.1875rem;
     background: linear-gradient(290deg, #d6dafe 0%, rgba(214, 252, 254, 0) 100%);
 
+    .header-text-content {
+        display: flex;
+        flex-direction: colum
+
+    }
+
+    .header-para {
+        text-align: left;
+        background-color: red;
+    }
+
   }
 }
+
