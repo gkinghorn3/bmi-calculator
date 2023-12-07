@@ -3,11 +3,12 @@ import "./Header.styles.scss";
 import logo from "/assets/images/logo.svg";
 
 import MetricInput from '../MetricInput/MetricInput';
+import UnitSelect from "../UnitSelect/UnitSelect";
 
 const HeaderContainer = () => {
   return (
     <div className="header-container flex justify-start gap-32 pt-16">
-      <div className=" ml-8 w-[25rem] bg-red-700">
+      <div className=" ml-8 w-[25rem]">
         <img src={logo} alt="logo" className="w-12" />
         <h1 className="font-bold text-[3rem] mt-32 mb-4">
           {" "}
@@ -22,21 +23,11 @@ const HeaderContainer = () => {
       </div>
       <div className="">
         <article className="bg-white shadow-xl w-[35.2rem] p-8 rounded-xl ">
-          <div id="unit-select" className="flex">
-            <div className="w-[50%] ">
-            <input id="metric" type="radio"  />
-            <label htmlFor="metric">Metric</label>
-            </div>
-            
 
-
-            <input id="imperial" type="radio" />
-            <label htmlFor="metric">Imperial</label>
-          </div>
-          <div id="metric-inputs" className="flex gap-4">
+            <UnitSelect />
             <MetricInput />
 
-          </div>
+        
         </article>
       </div>
     </div>

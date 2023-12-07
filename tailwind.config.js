@@ -9,6 +9,7 @@ export default {
       colors: {
         bodyClr: 'var(--body-clr)', 
         mainBlue: 'var(--main-blue)',
+        gunmetal: 'var(--gunmetal)',  
       }
     },
   },
