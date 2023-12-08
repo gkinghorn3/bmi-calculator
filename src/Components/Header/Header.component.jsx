@@ -8,6 +8,8 @@ import ResultContainer from "../CalcItems/ResultContainer/ResultContainer";
 import HeaderIntro from "./headerIntro/HeaderIntro";
 
 const HeaderContainer = () => {
+
+   
   const [bmi, setBmi] = useState(0);
   const [selectedUnits, setSelectedUnits] = useState("metric");
 
@@ -27,33 +29,53 @@ const HeaderContainer = () => {
     },
   });
 
+  const [minIdealWeight, setMinIdealWeight] = useState(0);
+  const [maxIdealWeight, setMaxIdealWeight] = useState(0);
+
   const calculateBMI = () => {
     let bmi = 0;
+    let totalHeightInInches;
 
-    // Check if metric measurements are set
-    if (metricMeasurements.height > 0 && metricMeasurements.weight > 0) {
-      // Calculate BMI using metric measurements
-      bmi = metricMeasurements.weight / (metricMeasurements.height / 100) ** 2;
-    } else {
+
+    if (selectedUnits === "metric") {
+  
+      bmi = parseFloat(metricMeasurements.weight / (metricMeasurements.height / 100) ** 2);
+    } else if (selectedUnits === "imperial") {
+      totalHeightInInches =
+        (parseFloat(imperialMeasurements.height.feet) || 0) * 12 +
+        (parseFloat(imperialMeasurements.height.inches) || 0);
+
+      const totalWeightInPounds =
+        (parseFloat(imperialMeasurements.weight.stone) || 0) * 14 +
+        (parseFloat(imperialMeasurements.weight.pounds) || 0);
+
+      if (totalHeightInInches > 0 && totalWeightInPounds > 0) {
       
-      const totalHeightInInches =
-      (parseFloat(imperialMeasurements.height.feet) || 0) * 12 +
-      (parseFloat(imperialMeasurements.height.inches) || 0);
+        bmi = parseFloat((totalWeightInPounds / (totalHeightInInches ** 2)) * 703);
+      }
+    }
+
+    setBmi(parseFloat(bmi.toFixed(1)));
+
+    let minIdealWeight;
+    let maxIdealWeight;
+    if (selectedUnits === "metric") {
+      minIdealWeight = parseFloat((18.5 * (metricMeasurements.height / 100) ** 2).toFixed(1));
+      maxIdealWeight = parseFloat((24.9 * (metricMeasurements.height / 100) ** 2).toFixed(1));
+    } else if (selectedUnits === "imperial") {
+      
+    const totalHeightInCm = totalHeightInInches * 2.54;
 
 
-    const totalWeightInPounds =
-    (parseFloat(imperialMeasurements.weight.stone) || 0) * 14 +
-    (parseFloat(imperialMeasurements.weight.pounds) || 0);
+    minIdealWeight = ((parseFloat((18.5 * ((totalHeightInCm / 100) ** 2)).toFixed(1))) * 2.2046).toFixed(1);
+    maxIdealWeight = ((parseFloat((24.9 * ((totalHeightInCm / 100) ** 2)).toFixed(1))) * 2.2046).toFixed(1);
     
-  if (totalHeightInInches > 0 && totalWeightInPounds > 0) {
-    // Calculate BMI using imperial measurements and convert to metric
-    bmi = parseFloat((totalWeightInPounds / (totalHeightInInches ** 2)) * 703);
+    }
+
+    setMinIdealWeight(minIdealWeight);
+    setMaxIdealWeight(maxIdealWeight);
   }
 
-  };
-
-  setBmi(parseFloat(bmi.toFixed(1)));
-}
 
  
 
@@ -61,6 +83,8 @@ const HeaderContainer = () => {
     const timer = setTimeout(() => {
       calculateBMI();
     }, 800); 
+
+    console.log(minIdealWeight, maxIdealWeight)
   
     
     return () => clearTimeout(timer);
@@ -79,7 +103,8 @@ const HeaderContainer = () => {
         pounds: 0,
       },
     });
-
+    setMaxIdealWeight(0);
+    setMinIdealWeight(0);
     
   }, [selectedUnits]);
 
@@ -104,7 +129,7 @@ const HeaderContainer = () => {
             />
           )}
 
-          <ResultContainer bmiNumber={bmi} />
+          <ResultContainer bmiNumber={bmi} minIdealWeight={minIdealWeight} maxIdealWeight={maxIdealWeight} selectedUnits={selectedUnits} />
         </article>
       </div>
     </div>
