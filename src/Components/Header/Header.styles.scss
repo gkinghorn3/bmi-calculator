@@ -1,5 +1,5 @@
 .header-container {
-   
+  overflow-x: hidden;
   &:after {
     z-index: -1;
     position: absolute;
@@ -7,13 +7,15 @@
     left: 0;
     display: block;
     content: "";
-    width: 61.125rem;
+    width: 100%;
     height: 46rem;
     flex-shrink: 0; 
     border-radius: 0rem 0rem 2.1875rem 2.1875rem;
     background: linear-gradient(290deg, #d6dafe 0%, rgba(214, 252, 254, 0) 100%);
 
-    
+    @media (min-width: 1100px) {
+      width: 62rem;
+    }
   }
 }
 

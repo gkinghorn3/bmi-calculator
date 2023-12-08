@@ -40,7 +40,7 @@ export default function Input() {
         </div>
         
         <div id='metric-weight-container' className="relative flex flex-col w-[50%]">
-        <label className="text-bodyClr mb-2">Height</label>
+        <label className="text-bodyClr mb-2">Weight</label>
          <div className="relative">
          <input
             type="number"

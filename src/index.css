@@ -4,7 +4,10 @@
 @tailwind utilities;
 
 html {
-  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+
 }
 
 :root {
@@ -110,11 +113,22 @@ input[type="radio"] {
 }
 
 
+/* hide arrow controls on number input focus */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /*****************/
 /* Custom Styles */
 /*****************/
 
-#result-container {
-  border-radius: 151px 998px 998px 151px;
 
+
+@media (min-width: 768px) {
+  #result-container {
+    border-radius: 151px 998px 998px 151px;
+  }
 }
