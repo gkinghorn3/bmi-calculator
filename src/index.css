@@ -3,7 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html {
+  width: 100vw;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -99,4 +101,20 @@ textarea:not([rows]) {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
+}
+
+
+input[type="radio"] {
+  margin: 0;
+  padding: 0;
+}
+
+
+/*****************/
+/* Custom Styles */
+/*****************/
+
+#result-container {
+  border-radius: 151px 998px 998px 151px;
+
 }

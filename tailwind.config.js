@@ -10,6 +10,11 @@ export default {
         bodyClr: 'var(--body-clr)', 
         mainBlue: 'var(--main-blue)',
         gunmetal: 'var(--gunmetal)',  
+        
+      },
+      borderRadius: {
+        custom1: '1rem',
+        custom2: '998.88px'
       }
     },
   },

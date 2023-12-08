@@ -1,6 +1,6 @@
 export default function UnitSelect() {
   return (
-    <div id="unit-select" className="flex mb-8">
+    <div id="unit-select" className="flex">
       <div className="w-[50%] flex justify-start gap-4">
         <input
           name="unit-select"
@@ -14,7 +14,7 @@ export default function UnitSelect() {
           Metric
         </label>
       </div>
-      <div className="w-[50%] flex gap-4">
+      <div className="w-[50%] flex justify-start gap-4">
         <input
           name="unit-select"
           id="metric"
