@@ -1,6 +1,6 @@
 
 
-export default function ResultContainer() {
+export default function ResultContainer({bmiNumber}) {
 
     return (
         <div
@@ -8,9 +8,9 @@ export default function ResultContainer() {
         className="bg-gradient-to-l from-blue-500 to-indigo-600
             text-white p-5 flex flex-col md:flex-row md:justify-center items-center rounded-lg"
       >
-        <div className="flex flex-col w-full md:w-[40%]">
+        <div className="flex flex-col w-full md:w-[40%] ">
           <p>Your BMI is...</p>
-          <h3 className="font-bold text-[4rem] text-left">45</h3>
+          <h3 className="font-bold text-[4rem] text-left">{isNaN(bmiNumber) ? "0" : bmiNumber}</h3>
         </div>
         <div className="md:w-[40%]">
           <p className="text-sm">

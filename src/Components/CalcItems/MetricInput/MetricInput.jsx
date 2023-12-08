@@ -8,13 +8,9 @@ const inputInnerLabelCss = "absolute top-[50%] right-4 transform translate-y-[-5
 
 
 
-export default function Input() {
+export default function Input({metricMeasurements, setMetricMeasurements}) {
 
-  const [metricMeasurements, setMetricMeasurements] = useState({
 
-    height: 0,
-    weight: 0,
-  })
 
   const handleChange = (e, inputType) => {
     setMetricMeasurements({...metricMeasurements, [inputType]: e.target.value})

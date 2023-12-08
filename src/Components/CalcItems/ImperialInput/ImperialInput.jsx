@@ -6,20 +6,8 @@ const inputCss =
 const inputInnerLabelCss =
   "absolute top-[50%] right-4 transform translate-y-[-50%] text-mainBlue font-bold text-2xl";
 
-export default function ImperialInput() {
+export default function ImperialInput({setImperialMeasurements, imperialMeasurements}) {
 
-
-
-    const [imperialMeasurements, setImperialMeasurements] = useState({
-        height: {
-            feet: 0,
-            inches: 0,
-        },
-        weight: {
-            stone: 0,
-            pounds: 0,
-        },
-    });
 
     const handleChange = (e, measurementType, unitType) => {
         setImperialMeasurements({...imperialMeasurements, [measurementType]: {
