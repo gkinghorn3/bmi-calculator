@@ -58,7 +58,7 @@ export default function ResultContainer({bmiNumber, minIdealWeight, maxIdealWeig
       </div>
       <div className="md:w-[40%]">
         <p className="text-sm">
-          Your BMI suggests you're <span>{bmiResult.classification}</span>. Your ideal weight is between <span>{minIdealWeight}{selectedUnits === 'metric' ? 'kg' : 'lbs'}</span> and <span>{maxIdealWeight}{selectedUnits === 'metric' ? 'kg' : 'lbs'}</span>.
+          Your BMI suggests you're <span>{bmiResult.classification}</span>. Your ideal weight is between <span className="font-bold">{minIdealWeight}{selectedUnits === 'metric' ? 'kg' : 'lbs'}</span> and <span className="font-bold">{maxIdealWeight}{selectedUnits === 'metric' ? 'kg' : 'lbs'}</span>.
         </p>
       </div>
     </div>
