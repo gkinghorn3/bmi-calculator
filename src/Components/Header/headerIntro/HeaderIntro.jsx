@@ -2,7 +2,7 @@
 import logo from "/assets/images/logo.svg";
 export default function HeaderIntro() {
 
-    return <div className=" mx-auto  w-[80%] lg:w-[25rem] text-center lg:text-left ">
+    return <div className="mx-auto  w-[80%] lg:mx-12 lg:w-[25rem] text-center lg:text-left ">
     <img src={logo} alt="logo" className=" mx-auto lg:mx-0 w-12" />
     <h1 className="font-bold text-[3rem] mt-4 lg:mt-16 mb-4">
       {" "}

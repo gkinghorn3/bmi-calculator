@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./Header.styles.scss";
 
 import MetricInput from "../CalcItems/MetricInput/MetricInput";
@@ -7,10 +7,12 @@ import UnitSelect from "../CalcItems/UnitSelect/UnitSelect";
 import ResultContainer from "../CalcItems/ResultContainer/ResultContainer";
 import HeaderIntro from "./headerIntro/HeaderIntro";
 
+import { bmiContext } from "../../store/bmiContext";
+
 const HeaderContainer = () => {
 
-   
-  const [bmi, setBmi] = useState(0);
+   const {bmi, setBmi } = useContext(bmiContext);
+ 
   const [selectedUnits, setSelectedUnits] = useState("metric");
 
   const [metricMeasurements, setMetricMeasurements] = useState({
