@@ -11,7 +11,7 @@ import { bmiContext } from "../../store/bmiContext";
 
 const HeaderContainer = () => {
 
-   const {bmi, setBmi } = useContext(bmiContext);
+   const {bmi, setBmi, setMinIdealWeight,  setMaxIdealWeight } = useContext(bmiContext);
  
   const [selectedUnits, setSelectedUnits] = useState("metric");
 
@@ -31,8 +31,7 @@ const HeaderContainer = () => {
     },
   });
 
-  const [minIdealWeight, setMinIdealWeight] = useState(0);
-  const [maxIdealWeight, setMaxIdealWeight] = useState(0);
+
 
   const calculateBMI = () => {
     let bmi = 0;
@@ -86,7 +85,7 @@ const HeaderContainer = () => {
       calculateBMI();
     }, 800); 
 
-    console.log(minIdealWeight, maxIdealWeight)
+    
   
     
     return () => clearTimeout(timer);
@@ -110,6 +109,8 @@ const HeaderContainer = () => {
     
   }, [selectedUnits]);
 
+  
+
   return (
     <div className="mx-auto header-container flex flex-col justify-between lg:flex-row lg:justify-start w-[90%] gap-8 md:p-16 pt-16">
       <HeaderIntro />
@@ -131,7 +132,7 @@ const HeaderContainer = () => {
             />
           )}
 
-          <ResultContainer bmiNumber={bmi} minIdealWeight={minIdealWeight} maxIdealWeight={maxIdealWeight} selectedUnits={selectedUnits} />
+          <ResultContainer selectedUnits={selectedUnits} />
         </article>
       </div>
     </div>

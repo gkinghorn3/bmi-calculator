@@ -1,15 +1,15 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+
+import { bmiContext } from "../../../store/bmiContext"
 
 
+export default function ResultContainer({ selectedUnits}) {
 
-export default function ResultContainer({bmiNumber, minIdealWeight, maxIdealWeight, selectedUnits}) {
+  const { bmiNumber, minIdealWeight, maxIdealWeight } = useContext(bmiContext);
 
   const [bmiResult, setBmiResult] = useState({
-    classification: "...", 
-    idealWeight: {
-      min: "...",
-      max: "...",
-    }
+    classification: "..."
+
   })
 
   // if (bmiNumber < 18.5) {
@@ -54,7 +54,7 @@ export default function ResultContainer({bmiNumber, minIdealWeight, maxIdealWeig
     >
       <div className="flex flex-col w-full md:w-[40%] ">
         <p>Your BMI is...</p>
-        <h3 className="font-bold text-[4rem] text-left">{isNaN(bmiNumber) ? "0" : bmiNumber}</h3>
+        <h3 className="font-bold text-[4rem] text-left">{isNaN(bmiNumber) || !isFinite(bmiNumber) ? "0" : bmiNumber}</h3>
       </div>
       <div className="md:w-[40%]">
         <p className="text-sm">
